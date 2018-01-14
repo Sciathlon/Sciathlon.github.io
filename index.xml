@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sciathlon</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Sciathlon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© This site is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.</copyright>
+    <lastBuildDate>Tue, 09 Jan 2018 21:18:51 +0100</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Links</title>
+      <link>http://localhost:1313/links/</link>
+      <pubDate>Tue, 09 Jan 2018 21:18:51 +0100</pubDate>
+      
+      <guid>http://localhost:1313/links/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Tue, 09 Jan 2018 18:56:54 +0100</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      <description>The Sciathlon blog Sciathlon is a blog about the science of sports, athletes and sports technology written by a scientist and athlete for other athletes that are interested in knowing more about it. The purpose of it is to get together a community of people who are curious about the science that goes into their sport and want to learn and share information and stories. The content you will find here will be around scientific publications about sports science, technologies developed for athletes, but it is also about sharing life experiences to help others in their journey to be the best athlete they can be.</description>
+    </item>
+    
+    <item>
+      <title>Best Sports Channels</title>
+      <link>http://localhost:1313/post/best-sports-channels/</link>
+      <pubDate>Tue, 09 Jan 2018 21:53:16 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/best-sports-channels/</guid>
+      <description>TheGingerRunner &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;  If you are interested in running and want to learn more about trails, races, athletes, training, gear, nutrition or whatever, there are amazing ressources out there that will teach and inspire you. To save you the time of actually looking through them and checking which ones are legit, I have compiled a little list of my favorite youtube runner channes that I have been following for months and years.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/post/hello-world/</link>
+      <pubDate>Tue, 09 Jan 2018 21:46:30 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/hello-world/</guid>
+      <description>some title some content!!!</description>
+    </item>
+    
+  </channel>
+</rss>
