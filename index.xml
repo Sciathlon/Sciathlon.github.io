@@ -2,50 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sciathlon</title>
-    <link>http://localhost:1313/</link>
+    <link>https://Sciathlon.github.io/</link>
     <description>Recent content on Sciathlon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© This site is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.</copyright>
+    <copyright> Copyright © Sciathlon 2018</copyright>
     <lastBuildDate>Tue, 09 Jan 2018 21:18:51 +0100</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Sciathlon.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Links</title>
-      <link>http://localhost:1313/links/</link>
+      <link>https://Sciathlon.github.io/links/</link>
       <pubDate>Tue, 09 Jan 2018 21:18:51 +0100</pubDate>
       
-      <guid>http://localhost:1313/links/</guid>
+      <guid>https://Sciathlon.github.io/links/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://Sciathlon.github.io/about/</link>
       <pubDate>Tue, 09 Jan 2018 18:56:54 +0100</pubDate>
       
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://Sciathlon.github.io/about/</guid>
       <description>The Sciathlon blog Sciathlon is a blog about the science of sports, athletes and sports technology written by a scientist and athlete for other athletes that are interested in knowing more about it. The purpose of it is to get together a community of people who are curious about the science that goes into their sport and want to learn and share information and stories. The content you will find here will be around scientific publications about sports science, technologies developed for athletes, but it is also about sharing life experiences to help others in their journey to be the best athlete they can be.</description>
     </item>
     
     <item>
+      <title>What to Expect at Winter Olympics 2018 for figure skating</title>
+      <link>https://Sciathlon.github.io/post/what-to-expect-at-winter-olympics-2018/</link>
+      <pubDate>Thu, 11 Jan 2018 18:57:35 +0100</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/what-to-expect-at-winter-olympics-2018/</guid>
+      <description>The winter olympics are coming! And with it the giddy excitement to see our inspiring favorite athletes. It is going to be interesting with the doping bans, many unfortunate injuries, and retirements. Figure skating is my favorite event because it is an incredibly beautiful and hard sport and I would know because I practised it for a few years. For a few years now Russian figure skating was always my favorite because their figure skating athletes are really amazing and their choreography beautiful.</description>
+    </item>
+    
+    <item>
+      <title>A History of Skiing</title>
+      <link>https://Sciathlon.github.io/post/the-history-of-skiing/</link>
+      <pubDate>Wed, 10 Jan 2018 13:38:51 +0100</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/the-history-of-skiing/</guid>
+      <description>I started skiing at the age of 3 at the station in the Alps called the &amp;ldquo;Sept Laux&amp;rdquo; next to Grenoble, France. It was natural to me, but until now I never wondered for how long people have done it. Here is a brief history of how it all began.
+The word ski comes from old Norse, a germanic language that was spoken in Scandinavia from the 8th to the late 14th century.</description>
+    </item>
+    
+    <item>
+      <title>What Are Skis Made Of</title>
+      <link>https://Sciathlon.github.io/post/what-are-skis-made-of/</link>
+      <pubDate>Wed, 10 Jan 2018 13:25:27 +0100</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/what-are-skis-made-of/</guid>
+      <description>It&amp;rsquo;s skiing season and I&amp;rsquo;m very excited about it except&amp;hellip; I can&amp;rsquo;t ski because I busted my knees. However I am still very curious to know what makes what skis are made of, and what is the difference between a beginner ski and a pro ski, like we can expect to see at the olympics in Febuary this year.
+So, without getting in detail about the history of skis (which you can find in this blog post (LINK!</description>
+    </item>
+    
+    <item>
       <title>Best Sports Channels</title>
-      <link>http://localhost:1313/post/best-sports-channels/</link>
+      <link>https://Sciathlon.github.io/post/best-sports-channels/</link>
       <pubDate>Tue, 09 Jan 2018 21:53:16 +0100</pubDate>
       
-      <guid>http://localhost:1313/post/best-sports-channels/</guid>
-      <description>TheGingerRunner &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;  If you are interested in running and want to learn more about trails, races, athletes, training, gear, nutrition or whatever, there are amazing ressources out there that will teach and inspire you. To save you the time of actually looking through them and checking which ones are legit, I have compiled a little list of my favorite youtube runner channes that I have been following for months and years.</description>
+      <guid>https://Sciathlon.github.io/post/best-sports-channels/</guid>
+      <description>TheGingerRunner  ====================
+If you are interested in running and want to learn more about trails, races, athletes, training, gear, nutrition or whatever, there are amazing ressources out there that will teach and inspire you. To save you the time of actually looking through them and checking which ones are legit, I have compiled a little list of my favorite youtube runner channes that I have been following for months and years.</description>
     </item>
     
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/post/hello-world/</link>
+      <link>https://Sciathlon.github.io/post/hello-world/</link>
       <pubDate>Tue, 09 Jan 2018 21:46:30 +0100</pubDate>
       
-      <guid>http://localhost:1313/post/hello-world/</guid>
-      <description>some title some content!!!</description>
+      <guid>https://Sciathlon.github.io/post/hello-world/</guid>
+      <description>Hello athletes, welcome on my new platform Sciathlon. The goal for this website is to share findings in sports science and technology. I am a biologist so I am interested in everything related with an athlete&amp;rsquo;s health such as nutrition, genetics, injuries and conditions related to the kind of activity we do. Some sports involve animals, so I will also be covering their health in this context. I am also interested in the technology involved in sports such as equipment but also training and performance analysis programmes and apps.</description>
     </item>
     
   </channel>
