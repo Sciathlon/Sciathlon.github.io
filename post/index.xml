@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright> Copyright © Sciathlon 2018</copyright>
-    <lastBuildDate>Thu, 11 Jan 2018 18:57:35 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jan 2018 13:28:15 +0100</lastBuildDate>
     
 	<atom:link href="https://Sciathlon.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Personal best of figure skaters in men&#39;s and ladie&#39;s events</title>
+      <link>https://Sciathlon.github.io/post/personal_best_figure_skating/</link>
+      <pubDate>Sun, 21 Jan 2018 13:28:15 +0100</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/personal_best_figure_skating/</guid>
+      <description>code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
+    </item>
+    
+    <item>
+      <title>R_figure_skating_analysis</title>
+      <link>https://Sciathlon.github.io/post/r_figure_skating_analysis/</link>
+      <pubDate>Sat, 20 Jan 2018 12:55:16 +0100</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/r_figure_skating_analysis/</guid>
+      <description>code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
+    </item>
     
     <item>
       <title>What to Expect at Winter Olympics 2018 for figure skating</title>

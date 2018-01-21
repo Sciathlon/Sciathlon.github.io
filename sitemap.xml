@@ -13,6 +13,16 @@
   </url>
   
   <url>
+    <loc>https://Sciathlon.github.io/post/personal_best_figure_skating/</loc>
+    <lastmod>2018-01-21T13:28:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/post/r_figure_skating_analysis/</loc>
+    <lastmod>2018-01-20T12:55:16+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://Sciathlon.github.io/post/what-to-expect-at-winter-olympics-2018/</loc>
     <lastmod>2018-01-11T18:57:35+01:00</lastmod>
   </url>
@@ -43,8 +53,38 @@
   </url>
   
   <url>
+    <loc>https://Sciathlon.github.io/tags/data-science/</loc>
+    <lastmod>2018-01-21T13:28:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/tags/figure-skating/</loc>
+    <lastmod>2018-01-21T13:28:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/tags/pb/</loc>
+    <lastmod>2018-01-21T13:28:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/tags/personal-best/</loc>
+    <lastmod>2018-01-21T13:28:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://Sciathlon.github.io/post/</loc>
-    <lastmod>2018-01-11T18:57:35+01:00</lastmod>
+    <lastmod>2018-01-21T13:28:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/tags/r/</loc>
+    <lastmod>2018-01-21T13:28:15+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -56,6 +96,7 @@
   
   <url>
     <loc>https://Sciathlon.github.io/tags/</loc>
+    <lastmod>2018-01-21T13:28:15+01:00</lastmod>
     <priority>0</priority>
   </url>
   
