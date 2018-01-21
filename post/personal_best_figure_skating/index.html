@@ -16,21 +16,21 @@
 
   
   <meta name="author" content="Sciathlete" />
-  <meta name="description" content="code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } ." />
+  <meta name="description" content="Today I am writing another piece about figure skating, also another piece about data analysis in this event. But I am not focusing solely on the Olympics this time but on the best scoring athletes and the best scoring event of each athlete. There is a lot of data to go through, so let’s get right into it! The data comes from the (International skating Union) website which I downloaded on the 20/01/2018 (if you try my code and the results are different it might be because the data on the website has changed)." />
 
   
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@twitter_username" />
     <meta name="twitter:title" content="Personal best of figure skaters in men&#39;s and ladie&#39;s events" />
-    <meta name="twitter:description" content="code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } ." />
+    <meta name="twitter:description" content="Today I am writing another piece about figure skating, also another piece about data analysis in this event. But I am not focusing solely on the Olympics this time but on the best scoring athletes and the best scoring event of each athlete. There is a lot of data to go through, so let’s get right into it! The data comes from the (International skating Union) website which I downloaded on the 20/01/2018 (if you try my code and the results are different it might be because the data on the website has changed)." />
     <meta name="twitter:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
   
 
   
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Personal best of figure skaters in men&#39;s and ladie&#39;s events" />
-  <meta property="og:description" content="code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } ." />
+  <meta property="og:description" content="Today I am writing another piece about figure skating, also another piece about data analysis in this event. But I am not focusing solely on the Olympics this time but on the best scoring athletes and the best scoring event of each athlete. There is a lot of data to go through, so let’s get right into it! The data comes from the (International skating Union) website which I downloaded on the 20/01/2018 (if you try my code and the results are different it might be because the data on the website has changed)." />
   <meta property="og:url" content="https://Sciathlon.github.io/post/personal_best_figure_skating/" />
   <meta property="og:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
 
@@ -235,7 +235,12 @@
       <h1 class="post-title">Personal best of figure skaters in men&#39;s and ladie&#39;s events</h1>
       <p class="post-meta">@Sciathlete · Jan 21, 2018 · 11 min read</p>
     </header>
-    <article class="post-content"><p><html xmlns="http://www.w3.org/1999/xhtml"></p>
+    <article class="post-content"><p>Today I am writing another piece about figure skating, also another piece about data analysis in this event. But I am not focusing solely on the Olympics
+this time but on the best scoring athletes and the best scoring event of each athlete. There is a lot of data to go through, so let’s get right into it!
+The data comes from the (<a href="http://www.isu.org/statistics">International skating Union</a>) website which I downloaded on the 20/01/2018 (if you try
+my code and the results are different it might be because the data on the website has changed). Reproducible blogging is important!</p>
+
+<p><html xmlns="http://www.w3.org/1999/xhtml"></p>
 
 <p><head></p>
 
@@ -337,7 +342,6 @@ $(document).ready(function () {
 
 
 
-<p>Today I am writing another piece about figure skating, also another piece about data analysis in this event. But I am not focusing solely on the Olympics this time but on the best scoring athletes and the best scoring event of each athlete. There is a lot of data to go through, so let’s get right into it! The data comes from the (<a href="http://www.isu.org/statistics">International skating Union</a>) website which I downloaded on the 20/01/2018 (if you try my code and the results are different it might be because the data on the website has changed). Reproducible blogging is important!</p>
 <div id="personal-best-for-athletes-a-first-look-at-the-data" class="section level1">
 <h1>Personal Best for athletes: a first look at the data</h1>
 <p>I first load up the files I compiled from the data found on the ISU website. The ladies’ and men’s event are separated into two different files because the data is separated on the website and it wouldn’t make any sense to compare anyways. Let’s check out a few lines of each the dataframes to see how they are structured:</p>
