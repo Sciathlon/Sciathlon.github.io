@@ -31,21 +31,30 @@
     </item>
     
     <item>
-      <title>Personal best of figure skaters in men&#39;s and ladie&#39;s events</title>
+      <title>Triathlon pubmed analysis</title>
+      <link>https://Sciathlon.github.io/post/triathlon_pubmed_analysis/</link>
+      <pubDate>Fri, 02 Feb 2018 20:32:34 +0100</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/triathlon_pubmed_analysis/</guid>
+      <description>Today I am using the RISmed package which I love, to look through the Pubmed database for what they have on triathlon. Pubmed is a NIH (USA) funded database which hosts articles about medicine and biology, so I am looking at studies that have been done on injuries and disease and human physiology that have to do with triathlon. I am not a triathlete yet, I am just focusing on running and I cycle to commute to the lab and swim as cross training every once in a while and I am planning on starting with a duathlon this summer and maybe casual triathlons next year because I want to focus on running this year.</description>
+    </item>
+    
+    <item>
+      <title>Figure skating athletes&#39; personal best</title>
       <link>https://Sciathlon.github.io/post/personal_best_figure_skating/</link>
-      <pubDate>Sun, 21 Jan 2018 13:28:15 +0100</pubDate>
+      <pubDate>Sat, 20 Jan 2018 20:32:34 +0100</pubDate>
       
       <guid>https://Sciathlon.github.io/post/personal_best_figure_skating/</guid>
-      <description>Today I am writing another piece about figure skating, also another piece about data analysis in this event. But I am not focusing solely on the Olympics this time but on the best scoring athletes and the best scoring event of each athlete. There is a lot of data to go through, so let’s get right into it! The data comes from the (International skating Union) website which I downloaded on the 20/01/2018 (if you try my code and the results are different it might be because the data on the website has changed).</description>
+      <description>Today I am writing another piece about figure skating, also another piece about data analysis in this event. But I am not focusing solely on the Olympics this time but on the best scoring athletes and the best scoring event of each athlete. There is a lot of data to go through, so let&amp;rsquo;s get right into it! The data comes from the (International skating Union) website which I downloaded on the 20/01/2018 (if you try my code and the results are different it might be because the data on the website has changed).</description>
     </item>
     
     <item>
       <title>R figure skating analysis</title>
-      <link>https://Sciathlon.github.io/post/r_figure_skating_analysis/</link>
+      <link>https://Sciathlon.github.io/post/analysis_medal_per_athlete/</link>
       <pubDate>Sat, 20 Jan 2018 12:55:16 +0100</pubDate>
       
-      <guid>https://Sciathlon.github.io/post/r_figure_skating_analysis/</guid>
-      <description>Today I am introducing a sneaky little data analysis using R on figure skating in the olympics. I have already written a piece on Figure skating and what I think is going to happen in the upcoming olympics. But I also want to look back at athletes who have competed and won a medal in the past Olympics. If you’ve never heard of data science, this is how you can make very easy analysis of your favorite things in the world!</description>
+      <guid>https://Sciathlon.github.io/post/analysis_medal_per_athlete/</guid>
+      <description>Analysing medals won per athlete/per country with R Today I am introducing a sneaky little data analysis using R on figure skating in the olympics. I have already written a piece on Figure skating and what I think is going to happen in the upcoming olympics. But I also want to look back at athletes who have competed and won a medal in the past Olympics. If you&amp;rsquo;ve never heard of data science, this is how you can make very easy analysis of your favorite things in the world!</description>
     </item>
     
     <item>
