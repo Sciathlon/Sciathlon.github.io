@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://Sciathlon.github.io/post/biathlon_data_analysis/</loc>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://Sciathlon.github.io/post/triathlon_pubmed_analysis/</loc>
     <lastmod>2018-02-02T20:32:34+01:00</lastmod>
   </url>
@@ -53,13 +58,37 @@
   </url>
   
   <url>
+    <loc>https://Sciathlon.github.io/tags/biathlon/</loc>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://Sciathlon.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://Sciathlon.github.io/tags/data-analysis/</loc>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/tags/olympics/</loc>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://Sciathlon.github.io/post/</loc>
-    <lastmod>2018-02-02T20:32:34+01:00</lastmod>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/tags/r/</loc>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -71,12 +100,25 @@
   
   <url>
     <loc>https://Sciathlon.github.io/tags/</loc>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://Sciathlon.github.io/tags/welcome/</loc>
     <lastmod>2018-01-09T21:46:30+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/tags/women/</loc>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Sciathlon.github.io/tags/world-championship/</loc>
+    <lastmod>2018-02-09T22:25:58+01:00</lastmod>
     <priority>0</priority>
   </url>
   
