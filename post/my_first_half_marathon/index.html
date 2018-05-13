@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>My first half marathon and its data analysis</title>
+
+  
+  
+
+
+
+
+
+  
+  <meta name="author" content="Sciathlete" />
+  <meta name="description" content="Hi everyone!
+I ran my first half marathon this spring and wanted to talk about my experience. I also analyzed the results of the race which I found on the Grenoble-Vizille website, so scroll down if you want to only look at the data science part of this article. I&amp;rsquo;ve only been running regularly for a year, and I&amp;rsquo;d been dreaming about this day since I started. It was still kind of a dream for the longest time, something that I wanted but was still only a concept until the day arrived and I realized: &amp;ldquo;I&amp;rsquo;m running a half marathon today." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@twitter_username" />
+    <meta name="twitter:title" content="My first half marathon and its data analysis" />
+    <meta name="twitter:description" content="Hi everyone!
+I ran my first half marathon this spring and wanted to talk about my experience. I also analyzed the results of the race which I found on the Grenoble-Vizille website, so scroll down if you want to only look at the data science part of this article. I&amp;rsquo;ve only been running regularly for a year, and I&amp;rsquo;d been dreaming about this day since I started. It was still kind of a dream for the longest time, something that I wanted but was still only a concept until the day arrived and I realized: &amp;ldquo;I&amp;rsquo;m running a half marathon today." />
+    <meta name="twitter:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="My first half marathon and its data analysis" />
+  <meta property="og:description" content="Hi everyone!
+I ran my first half marathon this spring and wanted to talk about my experience. I also analyzed the results of the race which I found on the Grenoble-Vizille website, so scroll down if you want to only look at the data science part of this article. I&amp;rsquo;ve only been running regularly for a year, and I&amp;rsquo;d been dreaming about this day since I started. It was still kind of a dream for the longest time, something that I wanted but was still only a concept until the day arrived and I realized: &amp;ldquo;I&amp;rsquo;m running a half marathon today." />
+  <meta property="og:url" content="https://Sciathlon.github.io/post/my_first_half_marathon/" />
+  <meta property="og:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.32.2" />
+
+
+<link rel="canonical" href="https://Sciathlon.github.io/post/my_first_half_marathon/" />
+<link rel="alternative" href="https://Sciathlon.github.io/index.xml" title="Sciathlon" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Sciathlon" />
+<meta name="msapplication-tooltip" content="Sciathlon" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="https://Sciathlon.github.io/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://Sciathlon.github.io/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://Sciathlon.github.io/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="https://Sciathlon.github.io/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="https://Sciathlon.github.io/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="https://Sciathlon.github.io/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="https://Sciathlon.github.io/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <img class="avatar" src="https://Sciathlon.github.io/img/avatar.jpg" alt="Avatar">
+  
+  <h2 class="title">Sciathlon</h2>
+  
+  <p class="subtitle">~ A blog about sports science and technology ~</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+            
+            
+            
+              is-active
+            ">
+            <a href="https://Sciathlon.github.io/">Home</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://github.com/Sciathlon">Works</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/tags/">Tags</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/links/">Links</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/about/">About</a>
+          </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+      <li class="social-item">
+        <a href="mailto:SciathlonBlog@gmail.com" title="Email"><span class="icon icon-email"></span></a>
+      </li>
+
+      
+      <li class="social-item">
+        <a href="//github.com/Sciathlon" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//twitter.com/twitter_username" title="Twitter"><span class="icon icon-twitter"></span></a>
+      </li>
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="//www.instagram.com/Sciathlon" title="Instagram"><span class="icon icon-instagram"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//www.youtube.com/user/Sciathlon%20Blog" title="YouTube"><span class="icon icon-youtube"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="https://Sciathlon.github.io/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">My first half marathon and its data analysis</h1>
+      <p class="post-meta">@Sciathlete · May 13, 2018 · 9 min read</p>
+    </header>
+    <article class="post-content"><p>Hi everyone!</p>
+
+<p>I ran my first half marathon this spring and wanted to talk about my
+experience. I also analyzed the results of the race which I found on the Grenoble-Vizille website, so scroll down if
+you want to only look at the data science part of this article. I&rsquo;ve
+only been running regularly for a year, and I&rsquo;d been dreaming about this
+day since I started. It was still kind of a dream for the longest time,
+something that I wanted but was still only a concept until the day
+arrived and I realized: &ldquo;I&rsquo;m running a half marathon today. This is
+crazy!&ldquo;. The Grenoble-Vizille half marathon is not a small event, but
+it&rsquo;s not huge either. It is a course that starts in Grenoble, where I
+live, and ends up at the Vizille Chateau, a beautiful museum about the
+french revolution with wonderful grounds full of swans. Because it took
+place on the 1st of April, most people had costumes, it was really cool.
+Around us at the start line were the entire Asterix and Obelix character
+set, including a few romans. So many people watched us run from their
+windows, shouting more or less insane things like &ldquo;it&rsquo;s almost over&rdquo; as
+we crossed the 5 first km in the towns of Grenoble, then Eybens. I
+always run with my friend Marie, we started together and are each
+other&rsquo;s motivation. She is much faster than me, especially when the
+climbs start, she is amazing. But she always runs the first few km with
+me at my pace, and we talked for a while until I got the worst stitch. I
+wanted to stop for a minute to recover but felt like it would look
+really foolish at km 2 of a half marathon&hellip; so she continued talking
+and I breathed through it. Then she sped ahead in the climb. I
+eventually always end up running alone in races because I&rsquo;m usually at
+the back and everyone has passed me, but this time there were so many
+people, that I was actually surrounded, which was new for me, and
+motivating. On my left a daughter was cursing at her father for asking
+her to come run the race with him, it was hilarious. On the course there
+were many people encouraging us, there were bands playing music,
+children in costumes dancing around and screaming at us, or handing
+their hand out for high fives.</p>
+
+<p>The course was beautiful, the mountains around us looked majestic. It
+was not very sunny, it even drizzled a bit near Eybens. It was not too
+warm either, and I was glad I had my light jacket. I took a few clips
+with my new gopro, but I didn&rsquo;t want to film other people too much so I
+held it close to me, and the shots are not great, but I will learn to
+use it eventually.</p>
+
+<p>Marie&rsquo;s mom is the best, and she gave us my favorite snack when running,
+&ldquo;pÃ¢te de fruit&rdquo;, and those were so delicious that it got me through some
+of the difficult last 5 km when I had stomach cramps and my hip felt
+very painful. I admit though I did stop to stretch it, and even walked
+for half a km because I was not feeling well.</p>
+
+<p>I usually sprint a bit at the end because I probably don&rsquo;t push enought
+the rest of the time^^ But this time I really couldn&rsquo;t, I just held on
+till the finish line, that&rsquo;s all I could manage. I wanted to cross it
+running rather than walking, and when I saw Marie she yelled at me, her
+face all shiny, and ran beside me the last 100 meters. After that we sat
+there for a while, stretching a bit, complaining about pain more, until
+we were freezing and we went to get some food. We had to wait for the
+bus to go home and grab lunch, and almost fell asleep because we were so
+tired!</p>
+
+<p>When I got home I just sat in the middle of the living room and and
+complained until my friends brought me food, because I could not move
+anymore. I could not walk properly for two days after that because my
+hip caused me so much pain. And then it got better, and I was fine and
+went running shortly after that.</p>
+
+<p>It was such a fun experience, if you get the chance to run this half
+marathon, I highly recommend it! It has a bit of a climb in the middle,
+280m elevation in one go. I think the hardest part of this race is that
+it&rsquo;s on road only, which is what caused my hip pain. If it was more on
+trails it would be perfect. But the volunteers where the nicest, and the
+organisation was very smooth from an outside point of view. The only
+thing I disliked besides the road, is that the prize ceremony takes
+place too early for me to get back in time, and I missed it, and I
+always enjoy clapping the winners&hellip;</p>
+
+<p>Training-wise, I had kind of a plan, which I did not follow at all. I
+don&rsquo;t like pain, so I don&rsquo;t want to do hill repeats, and fast-pace
+training, and I don&rsquo;t build the muscles I need to&hellip; But I should, and I
+will try to do it for the next races, because I want to get better. I
+think it&rsquo;s ok to do what you feel like, because it&rsquo;s your race, it&rsquo;s
+your life, and running is not the only thing in it. There is still so
+much time to get better, let&rsquo;s not suck all the fun from it, otherwize
+it&rsquo;s not sustainable. So if you are preparing a race like that and feel
+unprepared, just go and have fun. What I did to stop stressing over it
+is I went for a very slow pace half marathon one week before the event,
+on trails, testing the nutrition, the clothes I wanted to wear. It put
+my mind to rest when I was able to do the full distance, even if it took
+me much more time then I originally had planned. If you&rsquo;re hesitating to
+race because of your speed or because you feel like you haven&rsquo;t trained
+enough, just go for it, it&rsquo;s so worth it to do something you thought you
+were not capable of!</p>
+
+<p>Grenoble-Vizille half marathon, I&rsquo;ll see you next year, this was too fun
+to miss the next edition! In the mean time I have many more races
+planned this season.</p>
+
+<p>Now, let&rsquo;s do a bit of science, and look at the data from the results of
+the solo race (there was also a relay which I am ignoring here).</p>
+
+<p>I am getting to learn how to use awk, I am terrible at it for now, and
+hope that it will get better soon. So I had to process some of the data
+by hand, removing where there were missing data, because unfortunately
+it had a lot of inconsistencies in it so I removed everything that
+bothered me. Let&rsquo;s look at what we are left to work with for the first
+10 rows:</p>
+
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left">Pos</th>
+<th align="left">N.</th>
+<th align="left">Nom</th>
+<th align="left">PrÃ©nom</th>
+<th align="left">Pl</th>
+<th align="left">Cat</th>
+<th align="left">Pl.1</th>
+<th align="left">Sx</th>
+<th align="left">Temps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td align="left">1</td>
+<td align="left">91</td>
+<td align="left">HRIOUED</td>
+<td align="left">Alaa</td>
+<td align="left">1</td>
+<td align="left">SE</td>
+<td align="left">1</td>
+<td align="left">M</td>
+<td align="left">01:13:24</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td align="left">2</td>
+<td align="left">103</td>
+<td align="left">KIPLANGAT-KORIR</td>
+<td align="left">Charles</td>
+<td align="left">2</td>
+<td align="left">SE</td>
+<td align="left">2</td>
+<td align="left">M</td>
+<td align="left">01:13:29</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td align="left">3</td>
+<td align="left">112</td>
+<td align="left">SUGUT</td>
+<td align="left">Eliud</td>
+<td align="left">3</td>
+<td align="left">SE</td>
+<td align="left">3</td>
+<td align="left">M</td>
+<td align="left">01:13:41</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td align="left">4</td>
+<td align="left">108</td>
+<td align="left">FITA-AYANOM</td>
+<td align="left">Gudisa</td>
+<td align="left">4</td>
+<td align="left">SE</td>
+<td align="left">4</td>
+<td align="left">M</td>
+<td align="left">01:14:01</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td align="left">5</td>
+<td align="left">96</td>
+<td align="left">GIGANTE</td>
+<td align="left">Laurent</td>
+<td align="left">1</td>
+<td align="left">V1</td>
+<td align="left">5</td>
+<td align="left">M</td>
+<td align="left">01:15:39</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td align="left">6</td>
+<td align="left">106</td>
+<td align="left">BIWOTT</td>
+<td align="left">Stephen</td>
+<td align="left">5</td>
+<td align="left">SE</td>
+<td align="left">6</td>
+<td align="left">M</td>
+<td align="left">01:15:46</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td align="left">7</td>
+<td align="left">1</td>
+<td align="left">DELORME</td>
+<td align="left">Jerome</td>
+<td align="left">6</td>
+<td align="left">SE</td>
+<td align="left">7</td>
+<td align="left">M</td>
+<td align="left">01:17:01</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td align="left">8</td>
+<td align="left">3</td>
+<td align="left">POUSSINES</td>
+<td align="left">JÃ©rÃ´me</td>
+<td align="left">2</td>
+<td align="left">V1</td>
+<td align="left">8</td>
+<td align="left">M</td>
+<td align="left">01:18:55</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td align="left">9</td>
+<td align="left">114</td>
+<td align="left">JOUFFRE</td>
+<td align="left">Fabien</td>
+<td align="left">7</td>
+<td align="left">SE</td>
+<td align="left">9</td>
+<td align="left">M</td>
+<td align="left">01:19:05</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td align="left">10</td>
+<td align="left">2</td>
+<td align="left">MANTULET</td>
+<td align="left">Gabin</td>
+<td align="left">8</td>
+<td align="left">SE</td>
+<td align="left">10</td>
+<td align="left">M</td>
+<td align="left">01:19:48</td>
+</tr>
+</tbody>
+</table>
+
+<p>Congrats to the first ten men on the finish line, you guys are so damn
+fast!</p>
+
+<p>There are 1829 total people who ran the half marathon and crossed the
+finish line according to my data. There were 504 women constituting
+27.5560416 % of all runners and 1325 making up the remaining 72.4439584
+%. I actually heard an old woman spectating making the comment &ldquo;there
+are lots of women here!&rdquo; as I was passing by. And even though we&rsquo;re a
+little way from <sup>50</sup>&frasl;<sub>50</sub>, the percentage of women racing is increasing year
+after year. It reminds me of a comment from Laz, the director of the
+Barkley Marathons, reportedly saying &ldquo;it&rsquo;s the year of women&rdquo;, even
+though the percentages were far from equal. This next graph shows the
+difference pretty clearly as well as giving us the numbers per category:</p>
+
+<p><img src="../my_first_half_marathon_files/figure-markdown_strict/unnamed-chunk-2-1.png" alt="" /></p>
+
+<p>The category with most runners is as always the Senior catagory (my
+category actually). There were also a lot of Veteran 1 and 2 (category
+also called Master in some races I&rsquo;ve attended). The categories that
+also gain more participants recently are the Espoir and Junior
+categories, for the youger runners. Same for the opposite side with
+veterans 3, 4 and 5. Now I want to look at the summary of the times
+(mean, minimum, maximum, etc.):</p>
+
+<pre><code>## [1] &quot;Overall times summary&quot;
+
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 01:13:24 01:50:04 02:02:07 02:03:38 02:15:16 03:30:19
+
+## [1] &quot;Overall times summary for women&quot;
+
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 01:21:31 02:03:05 02:13:25 02:14:29 02:23:46 03:30:19
+
+## [1] &quot;Overall times summary for men&quot;
+
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 01:13:24 01:46:48 01:57:58 01:59:30 02:10:09 03:19:56
+</code></pre>
+
+<p>Now I want to do a plot similar to the one I did for ice skaters which
+is finish times according to the placement they got when they crossed
+it:</p>
+
+<p><img src="../my_first_half_marathon_files/figure-markdown_strict/unnamed-chunk-4-1.png" alt="" /></p>
+
+<p>Again we have a sigmoid plot, just like for ice skaters. Most runners
+are very grouped up and cross the finish line within seconds of each
+other, they are the middle part of the plot in the somewhat linear part.
+After 2:30 the line starts to thin and runners are more sparse until the
+cutoff of 3:30. And of course there are few runners at the front who are
+really fast. I want to separate men and women plots to compare:</p>
+
+<p><img src="../my_first_half_marathon_files/figure-markdown_strict/unnamed-chunk-5-1.png" alt="" /></p>
+
+<p>Men and women plots look very similar but with a little shift. The
+beginning of the plot (latent and beginning of exponential) has less
+density of runners in the women plot than in the men&rsquo;s plot. Also, even
+the slowest runners are a mix of men and women.</p>
+
+<p>I don&rsquo;t have time for more so that&rsquo;s all for now! See you next time=)</p>
+
+<p>Code for the analysis above:</p>
+
+<pre><code>library(ggplot2)
+library(readODS)
+library(sqldf)
+library(knitr)
+library(chron)
+library(scales)
+tbl &lt;- read.ods(file=&quot;data_semi_marathon_grenoble_vizille_2018.ods&quot;,1)
+colnames(tbl) &lt;- tbl[1,]
+tbl_df &lt;- data.frame(tbl[2:nrow(tbl),1:9])
+kable(head(tbl_df, 10))
+ggplot(sqldf(&quot;select Cat,Sx from tbl_df&quot;), aes(x=Cat, fill=Sx)) + geom_bar() + ggtitle(&quot;Men and women participants per category&quot;)
+tbl_df_sorted &lt;- tbl_df
+j &lt;-1
+while(j&lt; (nrow(tbl_df_sorted)-1)){
+  #print(j)
+  if(times(tbl_df_sorted$Temps)[j+1] &lt;= times(tbl_df_sorted$Temps)[j]){
+    tbl_df_sorted$Temps[j+1] &lt;- as.character(times(tbl_df_sorted$Temps)[j] + times(&quot;00:00:01&quot;))
+  }
+  j&lt;-j+1
+}
+print(&quot;Overall times summary&quot;)
+summary(times(tbl_df_sorted$Temps))
+print(&quot;Overall times summary for women&quot;)
+summary(times(sqldf(&quot;select Temps from tbl_df_sorted where Sx='F'&quot;)$Temps))
+print(&quot;Overall times summary for men&quot;)
+summary(times(sqldf(&quot;select Temps from tbl_df_sorted where Sx='M'&quot;)$Temps))
+plot(as.POSIXct(strptime(tbl_df_sorted$Temps, format=&quot;%H:%M:%S&quot;)), tbl_df_sorted$Pos, main=&quot;times according to place&quot;, xlab = &quot;time of arrival&quot;, ylab=&quot;place&quot;)
+women_df &lt;- tbl_df_sorted[which(tbl_df_sorted$Sx=='F'),]
+men_df &lt;- tbl_df_sorted[which(tbl_df_sorted$Sx=='M'),]
+par(mfcol=c(1,2))
+plot(as.POSIXct(strptime(women_df$Temps, format=&quot;%H:%M:%S&quot;)), women_df$Pos, main=&quot;times according to place for women&quot;, xlab = &quot;time of arrival&quot;, ylab=&quot;place&quot;)
+plot(as.POSIXct(strptime(men_df$Temps, format=&quot;%H:%M:%S&quot;)), men_df$Pos, main=&quot;times according to place for men&quot;, xlab = &quot;time of arrival&quot;, ylab=&quot;place&quot;)
+</code></pre>
+</article>
+    <footer class="post-footer">
+      
+      <p class="post-copyright">
+         Copyright © Sciathlon 2018
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017-2018 Sciathlon</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="https://Sciathlon.github.io/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>
