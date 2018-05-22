@@ -16,21 +16,21 @@
 
   
   <meta name="author" content="Sciathlete" />
-  <meta name="description" content="Today I am using the RISmed package which I love, to look through the Pubmed database for what they have on triathlon. Pubmed is a NIH (USA) funded database which hosts articles about medicine and biology, so I am looking at studies that have been done on injuries and disease and human physiology that have to do with triathlon. I am not a triathlete yet, I am just focusing on running and I cycle to commute to the lab and swim as cross training every once in a while and I am planning on starting with a duathlon this summer and maybe casual triathlons next year because I want to focus on running this year." />
+  <meta name="description" content="Today I am using the RISmed package for R to analyze publications about triathlon. It is an amazing package to look through the Pubmed database for what they have on a certain subject. Pubmed is a NIH (USA) funded database which hosts articles about medicine and biology. Today, I am looking at studies that have been done on injuries, disease and human physiology that have to do with triathlon. I am not a triathlete yet, I am just focusing on running this year but it is on my radar." />
 
   
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@twitter_username" />
     <meta name="twitter:title" content="Triathlon pubmed analysis" />
-    <meta name="twitter:description" content="Today I am using the RISmed package which I love, to look through the Pubmed database for what they have on triathlon. Pubmed is a NIH (USA) funded database which hosts articles about medicine and biology, so I am looking at studies that have been done on injuries and disease and human physiology that have to do with triathlon. I am not a triathlete yet, I am just focusing on running and I cycle to commute to the lab and swim as cross training every once in a while and I am planning on starting with a duathlon this summer and maybe casual triathlons next year because I want to focus on running this year." />
+    <meta name="twitter:description" content="Today I am using the RISmed package for R to analyze publications about triathlon. It is an amazing package to look through the Pubmed database for what they have on a certain subject. Pubmed is a NIH (USA) funded database which hosts articles about medicine and biology. Today, I am looking at studies that have been done on injuries, disease and human physiology that have to do with triathlon. I am not a triathlete yet, I am just focusing on running this year but it is on my radar." />
     <meta name="twitter:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
   
 
   
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Triathlon pubmed analysis" />
-  <meta property="og:description" content="Today I am using the RISmed package which I love, to look through the Pubmed database for what they have on triathlon. Pubmed is a NIH (USA) funded database which hosts articles about medicine and biology, so I am looking at studies that have been done on injuries and disease and human physiology that have to do with triathlon. I am not a triathlete yet, I am just focusing on running and I cycle to commute to the lab and swim as cross training every once in a while and I am planning on starting with a duathlon this summer and maybe casual triathlons next year because I want to focus on running this year." />
+  <meta property="og:description" content="Today I am using the RISmed package for R to analyze publications about triathlon. It is an amazing package to look through the Pubmed database for what they have on a certain subject. Pubmed is a NIH (USA) funded database which hosts articles about medicine and biology. Today, I am looking at studies that have been done on injuries, disease and human physiology that have to do with triathlon. I am not a triathlete yet, I am just focusing on running this year but it is on my radar." />
   <meta property="og:url" content="https://Sciathlon.github.io/post/triathlon_pubmed_analysis/" />
   <meta property="og:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
 
@@ -237,15 +237,14 @@
     </header>
     <article class="post-content">
 
-<p>Today I am using the RISmed package which I love, to look through the
-Pubmed database for what they have on triathlon. Pubmed is a NIH (USA)
-funded database which hosts articles about medicine and biology, so I am
-looking at studies that have been done on injuries and disease and human
+<p>Today I am using the RISmed package for R to analyze publications about triathlon.
+It is an amazing package to look through the Pubmed database for what they have on a certain subject. Pubmed is a NIH (USA)
+funded database which hosts articles about medicine and biology. Today, I am
+looking at studies that have been done on injuries, disease and human
 physiology that have to do with triathlon. I am not a triathlete yet, I
-am just focusing on running and I cycle to commute to the lab and swim
-as cross training every once in a while and I am planning on starting
-with a duathlon this summer and maybe casual triathlons next year
-because I want to focus on running this year. I use the Pubmed database
+am just focusing on running this year but it is on my radar. I cycle to commute to the lab and swim
+as cross training every once in a while. I am planning on starting
+with a duathlon this summer and maybe casual triathlons next year. I use the Pubmed database
 every day for work, and I am very curious to know what has been done for
 triathletes specifically, so let&rsquo;s jump right into it!</p>
 
@@ -258,7 +257,8 @@ of the number of publications according to the year:</p>
 
 <p><img src="../triathlon_pubmed_analysis_files/figure-markdown_strict/unnamed-chunk-2-1.png" alt="" /></p>
 
-<p>We can see that 13 years ago there weren&rsquo;t many publications about
+<p>The graph doesn&rsquo;t go all the way back to 2000 because I reached the limit for number of publications I set.
+On the graph, we can see that 13 years ago there weren&rsquo;t many publications about
 triathlon but their number increased tenfold after that despite a
 decrease in 2008 that might have been due to the financial crisis. In
 2012 the number reached a pic and has been pretty stable since at around
@@ -551,9 +551,10 @@ titles of articles mentionning triathlon is the knee. I am going to make
 the assumption that knee injuries have been studied most in triathlon
 based on this result. We also see ironman in there, but not sprint,
 olympic or half-ironman so this distance has probably been studied the
-most as well. Another interesting word is &ldquo;iron&rdquo;, and I might be wrong
+most as well. Another interesting word is &ldquo;iron&rdquo;, which can either be used as &ldquo;iron man&rdquo;
 but I hope it&rsquo;s because they looked at iron carrying molecules in
-triathletes. We also see endurance and ultraendurance words there. The
+triathletes. To make sure we&rsquo;d have to spend a little more time looking through it, make
+sure you let me know if you would like that using my social media. We also see endurance and ultraendurance words there. The
 word elite also comes up a lot, which makes sense if most studies look
 at results from elite athletes rather than casual triathletes and age
 groupers. There is also &ldquo;muscle&rdquo; in the top 20 which I find interesting
@@ -977,7 +978,7 @@ kable(head(auths2, 5))
     <footer class="post-footer">
       
       <p class="post-copyright">
-         Copyright © Sciathlon 2018This post was published <strong>107</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+         Copyright © Sciathlon 2018This post was published <strong>108</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
       </p>
     </footer>
     
