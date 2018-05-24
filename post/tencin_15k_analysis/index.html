@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Favorite trail race: Tencin 15km analysis</title>
+
+  
+  
+
+
+
+
+
+  
+  <meta name="author" content="Sciathlete" />
+  <meta name="description" content="Hi everyone!
+I am continuing my journey to learn awk and I finally managed to process (almost) an entire file today so let&amp;rsquo;s analyse the 2018 Tencin trail race. It was my first trail race of the season, and it kicks off the &amp;ldquo;challenge intercommunal du grésivaudan&amp;rdquo;, which is a set of 11 races in this region called the Grésivaudan which is a valley in between the two mountains of Belledonne and Chartreuse in the Alps." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@twitter_username" />
+    <meta name="twitter:title" content="Favorite trail race: Tencin 15km analysis" />
+    <meta name="twitter:description" content="Hi everyone!
+I am continuing my journey to learn awk and I finally managed to process (almost) an entire file today so let&amp;rsquo;s analyse the 2018 Tencin trail race. It was my first trail race of the season, and it kicks off the &amp;ldquo;challenge intercommunal du grésivaudan&amp;rdquo;, which is a set of 11 races in this region called the Grésivaudan which is a valley in between the two mountains of Belledonne and Chartreuse in the Alps." />
+    <meta name="twitter:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Favorite trail race: Tencin 15km analysis" />
+  <meta property="og:description" content="Hi everyone!
+I am continuing my journey to learn awk and I finally managed to process (almost) an entire file today so let&amp;rsquo;s analyse the 2018 Tencin trail race. It was my first trail race of the season, and it kicks off the &amp;ldquo;challenge intercommunal du grésivaudan&amp;rdquo;, which is a set of 11 races in this region called the Grésivaudan which is a valley in between the two mountains of Belledonne and Chartreuse in the Alps." />
+  <meta property="og:url" content="https://Sciathlon.github.io/post/tencin_15k_analysis/" />
+  <meta property="og:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.32.2" />
+
+
+<link rel="canonical" href="https://Sciathlon.github.io/post/tencin_15k_analysis/" />
+<link rel="alternative" href="https://Sciathlon.github.io/index.xml" title="Sciathlon" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Sciathlon" />
+<meta name="msapplication-tooltip" content="Sciathlon" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="https://Sciathlon.github.io/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://Sciathlon.github.io/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://Sciathlon.github.io/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="https://Sciathlon.github.io/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="https://Sciathlon.github.io/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="https://Sciathlon.github.io/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="https://Sciathlon.github.io/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <img class="avatar" src="https://Sciathlon.github.io/img/avatar.jpg" alt="Avatar">
+  
+  <h2 class="title">Sciathlon</h2>
+  
+  <p class="subtitle">~ A blog about sports science and technology ~</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+            
+            
+            
+              is-active
+            ">
+            <a href="https://Sciathlon.github.io/">Home</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://github.com/Sciathlon">Works</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/tags/">Tags</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/links/">Links</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/about/">About</a>
+          </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+      <li class="social-item">
+        <a href="mailto:SciathlonBlog@gmail.com" title="Email"><span class="icon icon-email"></span></a>
+      </li>
+
+      
+      <li class="social-item">
+        <a href="//github.com/Sciathlon" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//twitter.com/twitter_username" title="Twitter"><span class="icon icon-twitter"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//www.facebook.com/Sciathlon" title="Facebook"><span class="icon icon-facebook"></span></a>
+      </li>
+
+      
+
+      <li class="social-item">
+        <a href="//www.instagram.com/Sciathlon" title="Instagram"><span class="icon icon-instagram"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//www.youtube.com/user/Sciathlon%20Blog" title="YouTube"><span class="icon icon-youtube"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="https://Sciathlon.github.io/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Favorite trail race: Tencin 15km analysis</h1>
+      <p class="post-meta">@Sciathlete · May 24, 2018 · 6 min read</p>
+    </header>
+    <article class="post-content">
+
+<p>Hi everyone!</p>
+
+<p>I am continuing my journey to learn awk and I finally managed to process (almost)
+an entire file today so let&rsquo;s analyse the 2018 Tencin trail race. It was
+my first trail race of the season, and it kicks off the &ldquo;challenge
+intercommunal du grésivaudan&rdquo;, which is a set of 11 races in this region
+called the Grésivaudan which is a valley in between the two mountains of
+Belledonne and Chartreuse in the Alps. Tencin was my favorite race this
+year, it was so much fun! It was also one of the hardest ones because
+the climb is very steep (for me) but the descent was pretty easy. The weather was beautiful and it was a small event so it was
+a very chill race. The views were wonderful, and we were running around
+very rural areas so it felt like I was far away from everything. But the best part was
+the people cheering everyone on when they crossed villages and especially at the
+finish line. People around really motivate you to try as hard as you can
+on the last few hundred meters, even when you are among the last people
+to cross the finish line, they make you feel just as special as the
+first person to cross it. Another best part was the food: I have been
+constantly hungry since I began running and at aid stations at the race they had my favorite race food:
+&ldquo;pâte de fruit&rdquo;, which was so cool! I absolutely loved that event and
+will be returning for sure! If you&rsquo;re into a little bit of steep climb
+and a beautiful course, I highly recommend you participate if you can,
+and you can bring your dog to do cani-cross.</p>
+
+<p>OK, Let&rsquo;s jump in the data analysis part now using R, my favorite programming language:</p>
+
+<h1 id="first-look-at-the-data">First look at the data</h1>
+
+<p>I found the data on <a href="https://crossdetencin.blog4ever.com/">this
+website</a>. I processed the file
+with <a href="https://en.wikipedia.org/wiki/AWK">awk</a>, and a little manually or
+using macros from notepad++. Let&rsquo;s have a look at the data and pull up
+all the columns of the dataframe:</p>
+
+<pre><code>##  [1] &quot;Classement_general&quot;    &quot;Nom&quot;                  
+##  [3] &quot;Prénom&quot;                &quot;Licence&quot;              
+##  [5] &quot;Dossard&quot;               &quot;DateNaissance&quot;        
+##  [7] &quot;Classement_categories&quot; &quot;Cat&quot;                  
+##  [9] &quot;Classement_scratch&quot;    &quot;Genre&quot;                
+## [11] &quot;Temps&quot;
+</code></pre>
+
+<p>There are 163 total people who ran the race, everyone finished. There
+were 35 women constituting 21.4723926 % of all runners and 128 men
+making up the remaining 78.5276074 %. The huge women/men number
+difference is not unusual in trail races yet.</p>
+
+<h1 id="plotting-the-number-of-participants-per-category-for-men-and-women">Plotting the number of participants per category for men and women</h1>
+
+<p><img src="../tencin_cross_15k_2018_analysis_files/figure-markdown_strict/unnamed-chunk-2-1.png" alt="" /></p>
+
+<p>As per usual, the biggest category is the senior category in men and
+women, followed by veteran 1 then veteran 2. There are usually very few
+junior and espoir runners. Another thing I&rsquo;ve noticed that is also
+showed here is that in the veteran categories, men tend to run more when
+they are older so we have veteran 3-5 in men but sometimes not at all in
+women.</p>
+
+<h1 id="age-of-runners">Age of runners</h1>
+
+<p>We can see the age of runners more precisely than for categories in this
+next graph:</p>
+
+<p><img src="../tencin_cross_15k_2018_analysis_files/figure-markdown_strict/unnamed-chunk-3-1.png" alt="" /></p>
+
+<p>This plot shows that most runners were born between 1970 and 1982. The
+youngest runner was from 2000! It makes me feel so old that people from
+2000 are turning eighteen this year&hellip;</p>
+
+<p>Let&rsquo;s pull up a statistical summary of this data using the function
+&ldquo;summary()&rdquo; from base R:</p>
+
+<ul>
+<li><p>overall: 1944, 1968, 1976, 1976.2331288, 1984, 2000</p></li>
+
+<li><p>for men: 1944, 1967, 1975, 1975.046875, 1984, 1999</p></li>
+
+<li><p>for women 1962, 1975.5, 1978, 1980.5714286, 1987.5, 2000</p></li>
+</ul>
+
+<p>According to these summaries, women who race tend to be younger on
+average (1981 for women versus 1975 for men and the oldest man born in
+1944 versus 1962 for women). That sounds a little strange to me, why
+don&rsquo;t older women still race, or start racing, especially in local races
+like this one? Maybe the trend will disappear in a few years, I hope so!</p>
+
+<h1 id="finnish-times-according-to-place-at-the-finish-line">Finnish times according to place at the finish line</h1>
+
+<p>Now let&rsquo;s plot the finish times according to their place:</p>
+
+<p><img src="../tencin_cross_15k_2018_analysis_files/figure-markdown_strict/unnamed-chunk-4-1.png" alt="" /></p>
+
+<p>There are two different parts in this graph: the denser sigmoid is the
+men&rsquo;s one and the less dense one that is just slightly sigmoid is the
+women&rsquo;s one. The men&rsquo;s plot is pretty standard from other runners data
+I&rsquo;ve analyzed so far with spaced out runners at the front and at the
+back end and a very dense exponential phase in the middle. The women&rsquo;s
+data today, since there were so few of us looks a bit more linear, maybe
+even a little logarithmic at the end. There is also a gap around
+2:15-2:20 (we were having way too much fun back there to hurry up&hellip;I
+was filming and taking pictures, and met two runners with their dogs and
+we had a nice chat about cani-cross).</p>
+
+<h1 id="correlation-between-bib-number-and-place">Correlation between bib number and place</h1>
+
+<p>Now this is just silly for this kind of race, but is there a correlation
+between bib number and place?</p>
+
+<p><img src="../tencin_cross_15k_2018_analysis_files/figure-markdown_strict/unnamed-chunk-5-1.png" alt="" /></p>
+
+<p>As we can see there really is no correlation for this race. If you&rsquo;re
+curious why I did this it&rsquo;s because in some races it is actually
+relevant, you bib number indicates which start group you are in and that
+depends on your estimated arrival time.</p>
+
+<p>That&rsquo;s all for today! I&rsquo;m doing quite a few trail and road races this
+year, and maybe a couple new sports so you can expect more of those
+analyses, I&rsquo;ll try to keep them a little different each time and learn
+different ways to look at this kind of data, so make sure you come back
+for that. If you have any remarks, or want me to look at specific sets
+of data, let me know using my social media links! I will also post
+pictures of races and training there. See you next time!</p>
+
+<p>Sciathlon</p>
+
+<p>As usual the code is below:</p>
+
+<pre><code>#load libraries
+library(readODS)
+library(chron)
+library(sqldf)
+library(ggplot2)
+#read data and set column names
+tencin_tbl &lt;- read.ods(&quot;tencin_data_2018.ods&quot;, 1)
+colnames(tencin_tbl) &lt;- tencin_tbl[1,]
+tencin_tbl &lt;- data.frame(tencin_tbl[2:nrow(tencin_tbl),1:ncol(tencin_tbl)])
+#sort out the birth dates in case they are in wrong format
+for(i in 1:nrow(tencin_tbl)){
+  if(as.numeric(tencin_tbl$DateNaissance[i]) &gt; 18){
+    tencin_tbl$DateNaissance[i] &lt;- paste(&quot;19&quot;, tencin_tbl$DateNaissance[i], sep=&quot;&quot;)
+  }else{
+    tencin_tbl$DateNaissance[i] &lt;- paste(&quot;200&quot;, tencin_tbl$DateNaissance[i], sep=&quot;&quot;)
+    }
+}
+#display column names:
+colnames(tencin_tbl)
+#plot the categories
+ggplot(sqldf(&quot;select Cat from tencin_tbl&quot;), aes(x=Cat, fill=substr(tencin_tbl$Cat, 3, 3))) + geom_bar() + ggtitle(&quot;Men and women participants per category&quot;) + scale_fill_discrete(name=&quot;Category&quot;)
+#plot birth years
+hist(as.numeric(tencin_tbl$DateNaissance), main=&quot;Birth dates of runners&quot;, xlab=&quot;Birth year&quot;)
+#plot times vs place
+plot(as.POSIXct(strptime(tencin_tbl$Temps, format=&quot;%H:%M:%S&quot;)), tencin_tbl$Classement_scratch, main=&quot;times according to place&quot;, xlab = &quot;time of arrival&quot;, ylab=&quot;place&quot;)
+#plot bib number vs place
+plot(as.POSIXct(strptime(tencin_tbl$Temps, format=&quot;%H:%M:%S&quot;)), as.numeric(substr(tencin_tbl$Dossard, 3, nchar(tencin_tbl$Dossard))), main=&quot;times according to place&quot;, xlab = &quot;time of arrival&quot;, ylab=&quot;Bib number&quot;)
+</code></pre>
+</article>
+    <footer class="post-footer">
+      
+      <p class="post-copyright">
+         Copyright © Sciathlon 2018
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017-2018 Sciathlon</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="https://Sciathlon.github.io/js/bundle.js"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119123667-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+  </body>
+</html>
