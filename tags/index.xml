@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright> Copyright © Sciathlon 2018</copyright>
-    <lastBuildDate>Fri, 09 Feb 2018 22:25:58 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 24 May 2018 18:17:42 +0200</lastBuildDate>
     
 	<atom:link href="https://Sciathlon.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>15k</title>
+      <link>https://Sciathlon.github.io/tags/15k/</link>
+      <pubDate>Thu, 24 May 2018 18:17:42 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/tags/15k/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Biathlon</title>
@@ -22,11 +31,29 @@
     </item>
     
     <item>
+      <title>Challenge Intercommunal Du Grésivaudan</title>
+      <link>https://Sciathlon.github.io/tags/challenge-intercommunal-du-gr%C3%A9sivaudan/</link>
+      <pubDate>Thu, 24 May 2018 18:17:42 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/tags/challenge-intercommunal-du-gr%C3%A9sivaudan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Data Analysis</title>
       <link>https://Sciathlon.github.io/tags/data-analysis/</link>
-      <pubDate>Fri, 09 Feb 2018 22:25:58 +0100</pubDate>
+      <pubDate>Thu, 24 May 2018 18:17:42 +0200</pubDate>
       
       <guid>https://Sciathlon.github.io/tags/data-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Half Marathon</title>
+      <link>https://Sciathlon.github.io/tags/half-marathon/</link>
+      <pubDate>Sun, 13 May 2018 16:42:11 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/tags/half-marathon/</guid>
       <description></description>
     </item>
     
@@ -45,6 +72,42 @@
       <pubDate>Fri, 09 Feb 2018 22:25:58 +0100</pubDate>
       
       <guid>https://Sciathlon.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Race</title>
+      <link>https://Sciathlon.github.io/tags/race/</link>
+      <pubDate>Thu, 24 May 2018 18:17:42 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/tags/race/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Running</title>
+      <link>https://Sciathlon.github.io/tags/running/</link>
+      <pubDate>Sun, 13 May 2018 16:42:11 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/tags/running/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sports</title>
+      <link>https://Sciathlon.github.io/tags/sports/</link>
+      <pubDate>Tue, 09 Jan 2018 21:53:16 +0100</pubDate>
+      
+      <guid>https://Sciathlon.github.io/tags/sports/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trail Running</title>
+      <link>https://Sciathlon.github.io/tags/trail-running/</link>
+      <pubDate>Thu, 24 May 2018 18:17:42 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/tags/trail-running/</guid>
       <description></description>
     </item>
     
@@ -72,6 +135,15 @@
       <pubDate>Fri, 09 Feb 2018 22:25:58 +0100</pubDate>
       
       <guid>https://Sciathlon.github.io/tags/world-championship/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Youtube</title>
+      <link>https://Sciathlon.github.io/tags/youtube/</link>
+      <pubDate>Tue, 09 Jan 2018 21:53:16 +0100</pubDate>
+      
+      <guid>https://Sciathlon.github.io/tags/youtube/</guid>
       <description></description>
     </item>
     

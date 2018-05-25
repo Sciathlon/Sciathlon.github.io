@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Challenge Intercommunal Du Grésivaudan on Sciathlon</title>
+    <link>https://Sciathlon.github.io/tags/challenge-intercommunal-du-gr%C3%A9sivaudan/</link>
+    <description>Recent content in Challenge Intercommunal Du Grésivaudan on Sciathlon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright> Copyright © Sciathlon 2018</copyright>
+    <lastBuildDate>Thu, 24 May 2018 18:17:42 +0200</lastBuildDate>
+    
+	<atom:link href="https://Sciathlon.github.io/tags/challenge-intercommunal-du-gr%C3%A9sivaudan/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Favorite trail race: Tencin 15km analysis</title>
+      <link>https://Sciathlon.github.io/post/tencin_15k_analysis/</link>
+      <pubDate>Thu, 24 May 2018 18:17:42 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/tencin_15k_analysis/</guid>
+      <description>Hi everyone!
+I am continuing my journey to learn awk and I finally managed to process (almost) an entire file today so let&amp;rsquo;s analyse the 2018 Tencin trail race. It was my first trail race of the season, and it kicks off the &amp;ldquo;challenge intercommunal du grésivaudan&amp;rdquo;, which is a set of 11 races in this region called the Grésivaudan which is a valley in between the two mountains of Belledonne and Chartreuse in the Alps.</description>
+    </item>
+    
+  </channel>
+</rss>
