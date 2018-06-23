@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright> Copyright © Sciathlon 2018</copyright>
-    <lastBuildDate>Tue, 05 Jun 2018 20:55:49 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 22 Jun 2018 18:41:49 +0200</lastBuildDate>
     
 	<atom:link href="https://Sciathlon.github.io/tags/data-analysis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Multiple Sclerosis and exercise</title>
+      <link>https://Sciathlon.github.io/post/ms_and_exercise/</link>
+      <pubDate>Fri, 22 Jun 2018 18:41:49 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/ms_and_exercise/</guid>
+      <description>Hi athletes. I recently went to a Multiple Sclerosis (MS) conference in Paris organized by the ARSEP foundation, mostly to see what people are doing on the immunology side of the disease, and I started looking into the foundation a bit more and that&amp;rsquo;s how I started doing this article. Multiple sclerosis is an inflammatory disease of the Central Nervous System (CNS). It is an auto-immune disease which means that our own immune system attacks us.</description>
+    </item>
     
     <item>
       <title>Athlete&#39;s foot and its treatment</title>
