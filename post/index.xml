@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright> Copyright © Sciathlon 2018</copyright>
-    <lastBuildDate>Fri, 22 Jun 2018 18:41:49 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jul 2018 16:57:38 +0200</lastBuildDate>
     
 	<atom:link href="https://Sciathlon.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Strava time vs distance data analysis</title>
+      <link>https://Sciathlon.github.io/post/strava_time_distance_analysis/</link>
+      <pubDate>Sat, 07 Jul 2018 16:57:38 +0200</pubDate>
+      
+      <guid>https://Sciathlon.github.io/post/strava_time_distance_analysis/</guid>
+      <description>Hello everybody, I have a new run data analysis today: from my own strava data! I have been much slower recently on the posts, I will probably be until the end of july, because of work for my PhD, so I&amp;rsquo;m sorry about that. I am using the rStrava package and the tutorial in its readme file to get my strava data and see how much my running has changed since a year ago when I started.</description>
+    </item>
     
     <item>
       <title>Multiple Sclerosis and exercise</title>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Trail Running on Sciathlon</title>
-    <link>https://Sciathlon.github.io/tags/trail-running/</link>
-    <description>Recent content in Trail Running on Sciathlon</description>
+    <title>Runniversary on Sciathlon</title>
+    <link>https://Sciathlon.github.io/tags/runniversary/</link>
+    <description>Recent content in Runniversary on Sciathlon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright> Copyright © Sciathlon 2018</copyright>
     <lastBuildDate>Sat, 07 Jul 2018 16:57:38 +0200</lastBuildDate>
     
-	<atom:link href="https://Sciathlon.github.io/tags/trail-running/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Sciathlon.github.io/tags/runniversary/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       
       <guid>https://Sciathlon.github.io/post/strava_time_distance_analysis/</guid>
       <description>Hello everybody, I have a new run data analysis today: from my own strava data! I have been much slower recently on the posts, I will probably be until the end of july, because of work for my PhD, so I&amp;rsquo;m sorry about that. I am using the rStrava package and the tutorial in its readme file to get my strava data and see how much my running has changed since a year ago when I started.</description>
-    </item>
-    
-    <item>
-      <title>Favorite trail race: Tencin 15km analysis</title>
-      <link>https://Sciathlon.github.io/post/tencin_15k_analysis/</link>
-      <pubDate>Thu, 24 May 2018 18:17:42 +0200</pubDate>
-      
-      <guid>https://Sciathlon.github.io/post/tencin_15k_analysis/</guid>
-      <description>Hi everyone!
-I am continuing my journey to learn awk and I finally managed to process (almost) an entire file today so let&amp;rsquo;s analyse the 2018 Tencin trail race. It was my first trail race of the season, and it kicks off the &amp;ldquo;challenge intercommunal du grésivaudan&amp;rdquo;, which is a set of 11 races in this region called the Grésivaudan which is a valley in between the two mountains of Belledonne and Chartreuse in the Alps.</description>
     </item>
     
   </channel>

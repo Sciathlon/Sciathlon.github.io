@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Strava time vs distance data analysis</title>
+
+  
+  
+
+
+
+
+
+  
+  <meta name="author" content="Sciathlete" />
+  <meta name="description" content="Hello everybody, I have a new run data analysis today: from my own strava data! I have been much slower recently on the posts, I will probably be until the end of july, because of work for my PhD, so I&amp;rsquo;m sorry about that. I am using the rStrava package and the tutorial in its readme file to get my strava data and see how much my running has changed since a year ago when I started." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@twitter_username" />
+    <meta name="twitter:title" content="Strava time vs distance data analysis" />
+    <meta name="twitter:description" content="Hello everybody, I have a new run data analysis today: from my own strava data! I have been much slower recently on the posts, I will probably be until the end of july, because of work for my PhD, so I&amp;rsquo;m sorry about that. I am using the rStrava package and the tutorial in its readme file to get my strava data and see how much my running has changed since a year ago when I started." />
+    <meta name="twitter:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Strava time vs distance data analysis" />
+  <meta property="og:description" content="Hello everybody, I have a new run data analysis today: from my own strava data! I have been much slower recently on the posts, I will probably be until the end of july, because of work for my PhD, so I&amp;rsquo;m sorry about that. I am using the rStrava package and the tutorial in its readme file to get my strava data and see how much my running has changed since a year ago when I started." />
+  <meta property="og:url" content="https://Sciathlon.github.io/post/strava_time_distance_analysis/" />
+  <meta property="og:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.32.2" />
+
+
+<link rel="canonical" href="https://Sciathlon.github.io/post/strava_time_distance_analysis/" />
+<link rel="alternative" href="https://Sciathlon.github.io/index.xml" title="Sciathlon" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Sciathlon" />
+<meta name="msapplication-tooltip" content="Sciathlon" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="https://Sciathlon.github.io/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://Sciathlon.github.io/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://Sciathlon.github.io/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="https://Sciathlon.github.io/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="https://Sciathlon.github.io/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="https://Sciathlon.github.io/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="https://Sciathlon.github.io/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <img class="avatar" src="https://Sciathlon.github.io/img/avatar.jpg" alt="Avatar">
+  
+  <h2 class="title">Sciathlon</h2>
+  
+  <p class="subtitle">~ A blog about data science related to sports ~</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+            
+            
+            
+              is-active
+            ">
+            <a href="https://Sciathlon.github.io/">Home</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://github.com/Sciathlon">Works</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/tags/">Tags</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/links/">Links</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/about/">About</a>
+          </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+      <li class="social-item">
+        <a href="mailto:SciathlonBlog@gmail.com" title="Email"><span class="icon icon-email"></span></a>
+      </li>
+
+      
+      <li class="social-item">
+        <a href="//github.com/Sciathlon" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//twitter.com/twitter_username" title="Twitter"><span class="icon icon-twitter"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//www.facebook.com/Sciathlon" title="Facebook"><span class="icon icon-facebook"></span></a>
+      </li>
+
+      
+
+      <li class="social-item">
+        <a href="//www.instagram.com/Sciathlon" title="Instagram"><span class="icon icon-instagram"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//www.youtube.com/user/Sciathlon%20Blog" title="YouTube"><span class="icon icon-youtube"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="https://Sciathlon.github.io/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Strava time vs distance data analysis</h1>
+      <p class="post-meta">@Sciathlete · Jul 7, 2018 · 6 min read</p>
+    </header>
+    <article class="post-content">
+
+<p>Hello everybody, I have a new run data analysis today: from my own
+strava data! I have been much slower recently on the posts, I will
+probably be until the end of july, because of work for my PhD, so I&rsquo;m sorry about that. I am
+using the <a href="https://github.com/fawda123/rStrava">rStrava package</a> and the
+tutorial in its readme file to get my strava data and see how much my running
+has changed since a year ago when I started. As usual the code will be
+on <a href="https://github.com/Sciathlon">my github</a> if you want to give it a go
+with you own data. I am a little self conscious about showing my running
+data, but I know both the R and the running communities are amazing, so
+I am hoping for not too much judgement at my really slow pace! Anyway,
+let&rsquo;s look at my data.</p>
+
+<h1 id="month-by-month-total-distance-run">Month by month total distance run</h1>
+
+<p>I can check month by month how many kilometers I&rsquo;ve run total which
+allows me to see how I&rsquo;ve done so far in the past year and how I&rsquo;ve evolved.</p>
+
+<p><img src="../run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-1-1.png" alt="" /></p>
+
+<p>I ran fewer km than I remember in september. It was when I did my first
+races, and I felt really good about finishing them, especially the
+vertical race in Grenoble during which I had a hypoglycemia problem
+halfway through and just hung on for the rest. Other months around that
+were bad&hellip; I registered for my first half marathon on the 31st of
+december, and I got straight into training for that in January, and I
+must&rsquo;ve freaked out because I ran a lot! In February I had a lot of work
+and it decreased. And then I freaked out again in March because I had
+less than a month to train! In April I ran 2 half marathons. May and
+June, I wanted to rest a bit, but still ran reasonably well. July just
+started so it&rsquo;s a little lower but I feel good so I&rsquo;m probably going to
+run well. I&rsquo;m not too unhappy with this data, although the number of km
+run seems to be decreasing month to month this year, and I didn&rsquo;t
+realize that, so now I can try to make adjustments to get my training to
+where I want it to be. I don&rsquo;t have any races planned yet until end of
+August, so I can train more.</p>
+
+<h1 id="evolution-of-time-vs-distance">Evolution of time vs distance</h1>
+
+<p>On these figures we look at how my time evolves with distance, first
+point by point, then in a general linear regression model, and then in
+linear models for each month to see if there is a change from month to
+month. Times are in minutes and distances are in km. Colors represent
+different months.</p>
+
+<p><img src="../run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-3-1.png" alt="" /><img src="run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-3-2.png" alt="" /></p>
+
+<p>The increase in time according to distance is pretty linear until the
+distance goes above 20km but as I haven&rsquo;t done that kind of distance too
+much, and I&rsquo;ve pretty much only done it in races, so it&rsquo;s not too
+representative I think. Also the 27k run I&rsquo;ve done last week is really
+outside the tendency of the curve, because we were wasting time finding
+our way. I want to do it again on a path I know better to see how we can
+bring that time down. Another thing I&rsquo;ve noticed before seeing the data
+is I feel much slower these summer months than I was in the spring, and
+I&rsquo;m not completely sure why, maybe a combination of warmer weather and
+accumulated fatigue. On the next plot I did linear regression curve for
+each month:</p>
+
+<p><img src="../run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-4-1.png" alt="" /></p>
+
+<p>We confirm what I saw before, the lines for the summer months are higher
+than the spring months, showing that I&rsquo;ve slowed down. Especially this
+month with the 27k outlier, the coefficient is much higher.</p>
+
+<h1 id="evolution-of-distances-run">Evolution of distances run</h1>
+
+<p>When I started running in april 2017, my longest distances were under 5
+km. I still remember my first long runs at 5k around this time last
+year, and now I&rsquo;ve completed a 27km run. I can&rsquo;t wait to see what it&rsquo;ll
+be in a year! Let&rsquo;s see how my distance has evolved from month to month:</p>
+
+<p><img src="../run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-5-1.png" alt="" /></p>
+
+<p>On this plot we don&rsquo;t see the months I didn&rsquo;t record anything on strava.
+Those are the months I didn&rsquo;t run much anyways. It also went up in
+distance up until april where I did my two half marathons, and then I
+took some rest from the difference until this month.</p>
+
+<h1 id="evolution-of-max-distance">Evolution of max distance</h1>
+
+<p><img src="../run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-6-1.png" alt="" /></p>
+
+<h1 id="evolution-of-number-of-runs-in-a-month-vs-amount-of-km-run">Evolution of number of runs in a month vs amount of km run</h1>
+
+<p>I want to put on the same plot my total km run and the number of runs
+done. Down here, in red is the total km run in a month, and in blue is
+the number of runs done.</p>
+
+<p><img src="../run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-7-1.png" alt="" /></p>
+
+<p>The scale fits better the total km run, but we can still see that number
+of runs and distance are completely correlated, although the lines don&rsquo;t
+fit 100%. This makes total sense, especially at my level where I don&rsquo;t
+do huge distances.</p>
+
+<h1 id="most-run-distances">Most run distances</h1>
+
+<p>I want to see what kind of distance I run most often with this next
+plot:</p>
+
+<p><img src="../run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-8-1.png" alt="" /></p>
+
+<p>For now, I&rsquo;ve run much more in the smallest distances, but I&rsquo;ve run
+almost as much in &lt;5km than between 15 and 20k, I don&rsquo;t do too much
+in between, which I didn&rsquo;t realize before, I thought the longer the
+distance, the less I would&rsquo;ve run it.</p>
+
+<h1 id="distance-boxplot-month-to-month">Distance boxplot month to month</h1>
+
+<p>This boxplot is another way to look at how my running changes from month
+to month, the larger the box is, the more diverse the distances.</p>
+
+<p><img src="../run_evaluation_times_files/figure-markdown_strict/unnamed-chunk-9-1.png" alt="" /></p>
+
+<p>Some months are higher than others overall, we&rsquo;ve seen that already, and
+we have a few outliers that show that I went outside the tendency. In
+January is when I ran the most, but the box is quite small and the mean
+lower than 10 km, meaning I&rsquo;ve done some short distances a lot of times.
+In april I have a high mean and a wide box, because I ran much longer
+distances, but fewer times. In May and June this year, the means are
+much lower, I ran much smaller distances, which explains the overall km
+drop from the plots above.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>That&rsquo;s all for today! I thoroughly enjoyed this because it is my own
+data, and I learned something new on myself, and it&rsquo;s given me even more
+motivation to train! I have noticed physical changes since I began
+running last year, I&rsquo;ve gained a lot of muscle in my legs, they&rsquo;ve become
+really defined and visible, mostly due to trail running rather than road
+running, and I didn&rsquo;t even think of that when I started so it&rsquo;s pretty
+cool. I need to do some strength work for my upper body next, so I&rsquo;ll be
+a better runner. Right now I am starting a 10k a day challenge, just for
+fun, I&rsquo;ll report back on that soon. I haven&rsquo;t decided for how long yet.
+I hope you&rsquo;ve enjoyed today&rsquo;s analysis, I encourage you to run the code
+on your own strava data, it&rsquo;s very fun to do. Message me if you do! In
+the meantime, have fun on the trails, see you soon sciathletes!</p>
+
+<p>Sciathlete</p>
+</article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://Sciathlon.github.io/tags/running"><span class="tag">Running</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/strava"><span class="tag">Strava</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/data-analysis"><span class="tag">Data Analysis</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/trail-running"><span class="tag">Trail Running</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/evolution"><span class="tag">Evolution</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/runniversary"><span class="tag">Runniversary</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+         Copyright © Sciathlon 2018
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017-2018 Sciathlon</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="https://Sciathlon.github.io/js/bundle.js"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119123667-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+  </body>
+</html>
