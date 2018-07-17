@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Elevation gain run data analysis</title>
+
+  
+  
+
+
+
+
+
+  
+  <meta name="author" content="Sciathlete" />
+  <meta name="description" content="Hey everyone! This article is part 2 (see part 1) of last week&amp;rsquo;s piece about analysing my running data from strava, and this time it is about my elevation gain data. Again, I am using the rStrava package. If you&amp;rsquo;re wondering why I have additional data from last week&amp;rsquo;s article, it&amp;rsquo;s because I had a bunch of runs on &amp;ldquo;private&amp;rdquo;, so I just unprivated most of them so I have more complete data." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@twitter_username" />
+    <meta name="twitter:title" content="Elevation gain run data analysis" />
+    <meta name="twitter:description" content="Hey everyone! This article is part 2 (see part 1) of last week&amp;rsquo;s piece about analysing my running data from strava, and this time it is about my elevation gain data. Again, I am using the rStrava package. If you&amp;rsquo;re wondering why I have additional data from last week&amp;rsquo;s article, it&amp;rsquo;s because I had a bunch of runs on &amp;ldquo;private&amp;rdquo;, so I just unprivated most of them so I have more complete data." />
+    <meta name="twitter:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Elevation gain run data analysis" />
+  <meta property="og:description" content="Hey everyone! This article is part 2 (see part 1) of last week&amp;rsquo;s piece about analysing my running data from strava, and this time it is about my elevation gain data. Again, I am using the rStrava package. If you&amp;rsquo;re wondering why I have additional data from last week&amp;rsquo;s article, it&amp;rsquo;s because I had a bunch of runs on &amp;ldquo;private&amp;rdquo;, so I just unprivated most of them so I have more complete data." />
+  <meta property="og:url" content="https://Sciathlon.github.io/post/elevation_gain_analysis/" />
+  <meta property="og:image" content="https://Sciathlon.github.io/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.32.2" />
+
+
+<link rel="canonical" href="https://Sciathlon.github.io/post/elevation_gain_analysis/" />
+<link rel="alternative" href="https://Sciathlon.github.io/index.xml" title="Sciathlon" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Sciathlon" />
+<meta name="msapplication-tooltip" content="Sciathlon" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="https://Sciathlon.github.io/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://Sciathlon.github.io/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://Sciathlon.github.io/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="https://Sciathlon.github.io/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="https://Sciathlon.github.io/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="https://Sciathlon.github.io/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="https://Sciathlon.github.io/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <img class="avatar" src="https://Sciathlon.github.io/img/avatar.jpg" alt="Avatar">
+  
+  <h2 class="title">Sciathlon</h2>
+  
+  <p class="subtitle">~ A blog about data science related to sports ~</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+            
+            
+            
+              is-active
+            ">
+            <a href="https://Sciathlon.github.io/">Home</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://github.com/Sciathlon">Works</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/tags/">Tags</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/links/">Links</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://Sciathlon.github.io/about/">About</a>
+          </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+      <li class="social-item">
+        <a href="mailto:SciathlonBlog@gmail.com" title="Email"><span class="icon icon-email"></span></a>
+      </li>
+
+      
+      <li class="social-item">
+        <a href="//github.com/Sciathlon" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//twitter.com/twitter_username" title="Twitter"><span class="icon icon-twitter"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//www.facebook.com/Sciathlon" title="Facebook"><span class="icon icon-facebook"></span></a>
+      </li>
+
+      
+
+      <li class="social-item">
+        <a href="//www.instagram.com/Sciathlon" title="Instagram"><span class="icon icon-instagram"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//www.youtube.com/user/Sciathlon%20Blog" title="YouTube"><span class="icon icon-youtube"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="https://Sciathlon.github.io/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Elevation gain run data analysis</h1>
+      <p class="post-meta">@Sciathlete · Jul 17, 2018 · 5 min read</p>
+    </header>
+    <article class="post-content">
+
+<p>Hey everyone! This article is part 2 (see <a href="https://sciathlon.github.io/post/strava_time_distance_analysis/">part
+1</a>) of
+last week&rsquo;s piece about analysing my running data from strava, and this
+time it is about my elevation gain data. Again, I am using the <a href="https://github.com/fawda123/rStrava">rStrava
+package</a>. If you&rsquo;re wondering why I
+have additional data from last week&rsquo;s article, it&rsquo;s because I had a
+bunch of runs on &ldquo;private&rdquo;, so I just unprivated most of them so I have
+more complete data. I might update last week&rsquo;s article as well. Anyways,
+let&rsquo;s jump in the elevation gain study!</p>
+
+<h1 id="overall-elevation-gain-evolution">Overall elevation gain evolution</h1>
+
+<p>I am starting with the most general plot that shows a dot for each run
+done during different months, and the further on the right it goes, the
+higher the elevation profile the run.</p>
+
+<p><img src="../run_elev_gain_eval_files/figure-markdown_strict/unnamed-chunk-2-1.png" alt="" /></p>
+
+<p>This shows an overview of my elevation gain during running, and I&rsquo;ve mostly
+run on flat terrain, mainly because I have flat trails litterally at my
+front door&hellip; I&rsquo;ve done a few runs last september with elevation gain
+because I had a race to prepare for. I stopped going for trails in the
+moutains after my last race of 2017, a vertical race, because it was
+really hard for me, and actually it left me feeling very anxious and not
+ready for that so I took a looong break. I went back to it when I did my
+first half marathon, it was only about 230 m so I didn&rsquo;t prepare for it
+at all, and I felt pretty good so the anxiety I had for climbing
+dropped. The number of runs with more elevation gain increased
+during the spring months following the half marathon, and I did a couple
+races with more elevation gain than I&rsquo;d ever done before, and it was
+thrilling to be back in the mountains! It&rsquo;s hard to draw too many
+conclusions on a plot like that, so let&rsquo;s look at the data more closely
+in the next parts:</p>
+
+<h1 id="elevation-gain-vs-times-do-they-correlate">Elevation gain vs times: do they correlate?</h1>
+
+<p>I first plotted elevation gain profiles vs total run times to see if
+they correlate. Last week I showed that it clearly does for run time vs distance but
+that it wasn&rsquo;t completely linear, and for a given distance, times vary.
+This is probably due to elevation gain, as well as my own progression,
+climate conditions, and how I&rsquo;m feeling. The second plot shows a linear
+regression model for the data.</p>
+
+<p><img src="../run_elev_gain_eval_files/figure-markdown_strict/unnamed-chunk-3-1.png" alt="" /><img src="run_elev_gain_eval_files/figure-markdown_strict/unnamed-chunk-3-2.png" alt="" /></p>
+
+<p>So this graph shows how elevation gain correlates to overall run times.
+Obviously, it&rsquo;s all over the place, there are many runs where I had
+barely any elevation and the distance actually accounts for the times,
+it makes sense. But there are a few for which the time was the same and
+the elevation increased a lot. I think mostly the takeaway for this is I
+need to work on my flat trails speed, not just my endurance, and
+although I think I should improve my speed on climbs, it isn&rsquo;t where I need improvement most. On that second graph with a linear regression
+model, there is much more variation on higher elevation profiles. But
+this linear regression model is not a good fit to this data as you can
+see, at least not for all the data. Let&rsquo;s see month by month if it fits
+better:</p>
+
+<p><img src="../run_elev_gain_eval_files/figure-markdown_strict/unnamed-chunk-4-1.png" alt="" /></p>
+
+<p>Month by month it&rsquo;s a little chaotic in linear regression model but I
+feel like it&rsquo;s already a little more representative of the data. But
+distance is much more of a factor in overall times than elevation gains.</p>
+
+<h1 id="evolution-of-max-elevation-throughout-the-year">Evolution of max elevation throughout the year</h1>
+
+<p><img src="../run_elev_gain_eval_files/figure-markdown_strict/unnamed-chunk-5-1.png" alt="" /></p>
+
+<p>I go through phases with elevation gain, nothing is very consistent for
+reasons I&rsquo;ve already mentioned. What I&rsquo;m sad about is I don&rsquo;t see
+tangible improvement! This is something that I should pay more attention
+to, I do elevation gain in races, but don&rsquo;t prep for it enough I think.
+I need to modify my training to fit what I need and what I want.</p>
+
+<h1 id="evolution-of-number-of-runs-in-a-month-vs-amount-of-elevation-gain">Evolution of number of runs in a month vs amount of elevation gain</h1>
+
+<p>I want to put on the same plot my total elevation gain and the number of
+runs done. Down here, in red is the elevation gain done in a month, and
+in blue is the number of runs done. The scale is logarithmic.</p>
+
+<p><img src="../run_elev_gain_eval_files/figure-markdown_strict/unnamed-chunk-6-1.png" alt="" /></p>
+
+<p>Unlike for the total distance vs number of runs, the total elevation
+gain vs number of runs doesn&rsquo;t really correlate too much, at least for
+most months. This tells me that I really don&rsquo;t do enough climbing in training,
+but I am going to work on that.</p>
+
+<h1 id="most-run-elevation-gain-profiles">Most run elevation gain profiles</h1>
+
+<p>I want to see what kind of elevation gain profiles I run most often with
+this next plot:</p>
+
+<p><img src="../run_elev_gain_eval_files/figure-markdown_strict/unnamed-chunk-7-1.png" alt="" /></p>
+
+<p>I mostly run on flatter trails of lower than 50m elevation gain
+profiles, right outside along the river. But as I&rsquo;ve mentioned, I should
+really try to focus more on elevation gain at least once a week, it will
+make me faster in races, which are mostly trail races in the mountains.
+Most of the runs of categories other than 50m are races after all&hellip;</p>
+
+<h1 id="elevation-gain-boxplot-month-to-month">Elevation gain boxplot month to month</h1>
+
+<p>This boxplot is another way to look at how my running changes from month
+to month, the larger the box is, the more diverse the elevation gain
+profile is.</p>
+
+<p><img src="../run_elev_gain_eval_files/figure-markdown_strict/unnamed-chunk-8-1.png" alt="" /></p>
+
+<p>My months all look very&hellip; flat. There aren&rsquo;t any months where I just concentrated
+on climbing, and on months where I did have some climbing, the boxplot is really large,
+so I also run a lot on flat terrain during that same month. This just confirms everything I&rsquo;ve
+shown before, that my runs with elevation gain are my races and I don&rsquo;t
+train at all enough for them. The funny thing is I never even realized
+how little I was doing.</p>
+
+<p>This week I took a little rest after a big week of running, I felt
+tension in my knees so I am giving them time to be perfectly fine for my
+post-running-analysis training, which I am going to design right after
+finishing this article. I am setting straight for the mountains as soon
+as my rest week is over!</p>
+
+<p>I hope this was interesting for you, it definitely taught me more about
+myself! See you next time, have fun on the trails!</p>
+
+<p>Sciathlete</p>
+</article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://Sciathlon.github.io/tags/running"><span class="tag">Running</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/data-analysis"><span class="tag">Data Analysis</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/elevation-gain"><span class="tag">Elevation Gain</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/mountains"><span class="tag">Mountains</span></a></li>
+        
+          <li><a href="https://Sciathlon.github.io/tags/training"><span class="tag">Training</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+         Copyright © Sciathlon 2018
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017-2018 Sciathlon</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="https://Sciathlon.github.io/js/bundle.js"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119123667-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+  </body>
+</html>
